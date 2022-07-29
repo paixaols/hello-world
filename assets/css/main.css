@@ -1209,6 +1209,8 @@ input[type="radio"] + label:before {
     font-weight: 900; }
   .icon.brands:before {
     font-family: 'Font Awesome 5 Brands'; }
+  .icon.ai:before {
+    font-family: 'Academicons'; }
 
 /* Image */
 .image {
@@ -2272,7 +2274,12 @@ button,
     margin-top: 0;
     padding-top: 0; }
 
-/*  */
+/* Dismiss elements if small screen */
+@media (max-width: 1000px) {
+  .hide-if-small-screen {
+    display: none;
+  }
+}
 
 .project-thumb{
   width: 600px;
