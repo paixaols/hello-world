@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+	<head>
+		<title>Lucas Paixão</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+		<div id="wrapper">
+
+			<!-- Main -->
+			<div id="main">
+				<div class="inner">
+
+					<!-- Header -->
+					<header id="header">
+						<a href="../dataviz.html" class="logo icon solid fa-arrow-left"><strong>Voltar</strong></a>
+					</header>
+
+					<!-- Line plot -->
+					<section>
+						<header class="main">
+							<h1>Estilos do matplotlib</h1>
+						</header>
+
+						<div class="row aln-center">
+							<div class="col-6 col-12-medium">
+
+								<!-- ggplot -->
+								<p>A biblioteca matplotlib possui vários estilos de formatação para customização rápida dos gráficos. Uma lista completa dos estilos existe na <a href="https://matplotlib.org/stable/gallery/style_sheets/style_sheets_reference.html" target="_blank" rel="noopener noreferrer">documentação</a> da biblioteca. Aqui, exemplos com o estilo <code>ggplot</code>:</p>
+								<pre><code>
+import matplotlib.pyplot as plt
+plt.style.use('ggplot')
+
+x = [1,2,3,4,5]
+y1 = [2,5,3,5,7]
+y2 = [7,4,5,3,2]
+
+plt.plot(x, y1, '-o', label='Linha 1')
+plt.plot(x, y2, '-s', label='Linha 2')
+plt.legend()
+plt.title('ggplot')
+								</code></pre>
+								<span class="image fit"><img src="images/lineplot2-1.png" alt=""></span>
+
+								<hr>
+
+								<!-- bmh -->
+								<p>Estilo <code>bmh</code>:</p>
+								<pre><code>
+import matplotlib.pyplot as plt
+plt.style.use('bmh')
+
+x = [1,2,3,4,5]
+y1 = [2,5,3,5,7]
+y2 = [7,4,5,3,2]
+
+plt.plot(x, y1, '-o', label='Linha 1')
+plt.plot(x, y2, '-s', label='Linha 2')
+plt.legend()
+plt.title('bmh')
+								</code></pre>
+								<span class="image fit"><img src="images/lineplot2-2.png" alt=""></span>
+
+								<hr>
+
+								<!-- seaborn -->
+								<p>Estilo <code>seaborn</code>:</p>
+								<pre><code>
+import matplotlib.pyplot as plt
+plt.style.use('seaborn')
+
+x = [1,2,3,4,5]
+y1 = [2,5,3,5,7]
+y2 = [7,4,5,3,2]
+
+plt.plot(x, y1, '-o', label='Linha 1')
+plt.plot(x, y2, '-s', label='Linha 2')
+plt.legend()
+plt.title('seaborn')
+								</code></pre>
+								<span class="image fit"><img src="images/lineplot2-3.png" alt=""></span>
+
+								<hr>
+
+								<!-- fivethirtyeight -->
+								<p>Estilo <code>fivethirtyeight</code>:</p>
+								<pre><code>
+import matplotlib.pyplot as plt
+plt.style.use('fivethirtyeight')
+
+x = [1,2,3,4,5]
+y1 = [2,5,3,5,7]
+y2 = [7,4,5,3,2]
+
+plt.plot(x, y1, '-o', label='Linha 1')
+plt.plot(x, y2, '-s', label='Linha 2')
+plt.legend()
+plt.title('fivethirtyeight')
+								</code></pre>
+								<span class="image fit"><img src="images/lineplot2-4.png" alt=""></span>
+
+								<hr>
+
+							</div>
+						</div>
+					</section>
+
+				</div>
+			</div>
+
+		</div>
+
+		<!-- Scripts -->
+		<script src="../assets/js/jquery.min.js"></script>
+		<script src="../assets/js/browser.min.js"></script>
+		<script src="../assets/js/breakpoints.min.js"></script>
+		<script src="../assets/js/util.js"></script>
+		<script src="../assets/js/main.js"></script>
+
+	</body>
+</html>

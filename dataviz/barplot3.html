@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+	<head>
+		<title>Lucas Paixão</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+		<div id="wrapper">
+
+			<!-- Main -->
+			<div id="main">
+				<div class="inner">
+
+					<!-- Header -->
+					<header id="header">
+						<a href="../dataviz.html" class="logo icon solid fa-arrow-left"><strong>Voltar</strong></a>
+					</header>
+
+					<!-- bar plot -->
+					<section>
+						<header class="main">
+							<h1>Gráfico de barras</h1>
+						</header>
+
+						<div class="row aln-center">
+							<div class="col-6 col-12-medium">
+
+								<p>Exemplo de gráfico de barras empilhadas.</p>
+								<pre><code>
+import matplotlib.pyplot as plt
+
+labels = ['A', 'B', 'C', 'D', 'E']
+group1 = [2, 5, 3, 5, 7]
+group2 = [5, 4, 5, 3, 2]
+
+plt.bar(labels, group1, label='Grupo 1')
+plt.bar(labels, group2, bottom=group1, label='Grupo 2')
+plt.legend()
+								</code></pre>
+								<span class="image fit"><img src="images/barplot3-1.png" alt=""></span>
+
+								<hr>
+
+							</div>
+						</div>
+					</section>
+
+				</div>
+			</div>
+
+		</div>
+
+		<!-- Scripts -->
+		<script src="../assets/js/jquery.min.js"></script>
+		<script src="../assets/js/browser.min.js"></script>
+		<script src="../assets/js/breakpoints.min.js"></script>
+		<script src="../assets/js/util.js"></script>
+		<script src="../assets/js/main.js"></script>
+
+	</body>
+</html>

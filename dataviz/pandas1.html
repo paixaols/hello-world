@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+	<head>
+		<title>Lucas Paixão</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+		<div id="wrapper">
+
+			<!-- Main -->
+			<div id="main">
+				<div class="inner">
+
+					<!-- Header -->
+					<header id="header">
+						<a href="../dataviz.html" class="logo icon solid fa-arrow-left"><strong>Voltar</strong></a>
+					</header>
+
+					<!-- Pandas plot -->
+					<section>
+						<header class="main">
+							<h1>Pandas</h1>
+						</header>
+
+						<div class="row aln-center">
+							<div class="col-6 col-12-medium">
+
+								<p>O dataframe da biblioteca pandas possui o método <code>plot</code> que possibilita criar gráficos com facilidade. Para a criação do dataframe vamos usar o código</p>
+								<pre><code>
+import numpy as np
+import pandas as pd
+
+x = np.arange(0, 10, 0.2)
+y = np.random.randint(low=0, high=11, size=50)
+df = pd.DataFrame({'col x':x, 'col y':y})
+								</code></pre>
+								<p>As primeiras linhas do meu dataframe são:</p>
+								<div class="table-wrapper" style="max-width: 50%;">
+									<table>
+										<thead>
+											<tr>
+												<th></th>
+												<th>col x</th>
+												<th>col y</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>0</td>
+												<td>0.0</td>
+												<td>6</td>
+											</tr>
+											<tr>
+												<td>1</td>
+												<td>0.2</td>
+												<td>2</td>
+											</tr>
+											<tr>
+												<td>2</td>
+												<td>0.4</td>
+												<td>10</td>
+											</tr>
+											<tr>
+												<td>3</td>
+												<td>0.6</td>
+												<td>0</td>
+											</tr>
+											<tr>
+												<td>4</td>
+												<td>0.8</td>
+												<td>8</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								<p>É possível plotar cada coluna em função do índice do dataframe da seguinte forma</p>
+								<pre><code>
+df.plot()
+								</code></pre>
+								<span class="image fit"><img src="images/pandas1-1.png" alt=""></span>
+
+								<hr>
+
+								<p>Com os parâmetros do método <code>plot</code> é possível determinar quais colunas do dataframe serão plotadas e ainda customizar o gráfico:</p>
+								<pre><code>
+df.plot(
+    x='col x', y='col y',
+    xlabel='Eixo x',
+    ylabel='Eixo y',
+    title='Gráfico de linha',
+)
+								</code></pre>
+								<span class="image fit"><img src="images/pandas1-2.png" alt=""></span>
+
+								<hr>
+
+							</div>
+						</div>
+					</section>
+
+				</div>
+			</div>
+
+		</div>
+
+		<!-- Scripts -->
+		<script src="../assets/js/jquery.min.js"></script>
+		<script src="../assets/js/browser.min.js"></script>
+		<script src="../assets/js/breakpoints.min.js"></script>
+		<script src="../assets/js/util.js"></script>
+		<script src="../assets/js/main.js"></script>
+
+	</body>
+</html>

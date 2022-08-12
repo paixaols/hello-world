@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+	<head>
+		<title>Lucas Paixão</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+		<div id="wrapper">
+
+			<!-- Main -->
+			<div id="main">
+				<div class="inner">
+
+					<!-- Header -->
+					<header id="header">
+						<a href="../dataviz.html" class="logo icon solid fa-arrow-left"><strong>Voltar</strong></a>
+					</header>
+
+					<!-- Line plot -->
+					<section>
+						<header class="main">
+							<h1>Gráfico de linha</h1>
+						</header>
+
+						<div class="row aln-center">
+							<div class="col-6 col-12-medium">
+								
+								<p>O código abaixo gera um simples gráfico de linha a partir de dados contidos em duas listas.</p>
+								<pre><code>
+import matplotlib.pyplot as plt
+
+x = [1,2,3,4,5]
+y = [2,5,3,5,7]
+
+plt.plot(x, y)
+								</code></pre>
+								<span class="image fit"><img src="images/lineplot1-1.png" alt=""></span>
+
+								<hr>
+
+								<p>É possível customizar o estilo de linha com o parâmetro <code>linestyle</code> e os símbolos com o parâmetro <code>marker</code>.</p>
+								<pre><code>
+import matplotlib.pyplot as plt
+
+x = [1,2,3,4,5]
+y = [2,5,3,5,7]
+
+plt.plot(x, y, linestyle='--', marker='o')
+								</code></pre>
+								<span class="image fit"><img src="images/lineplot1-2.png" alt=""></span>
+
+								<hr>
+
+								<p>O método <code>plt.grid</code> habilita as linhas de grade que podem auxiliar na Visualização do gráfico.</p>
+								<pre><code>
+import matplotlib.pyplot as plt
+
+x = [1,2,3,4,5]
+y = [2,5,3,5,7]
+
+plt.plot(x, y, linestyle='--', marker='o')
+plt.xlabel('Eixo x')
+plt.ylabel('Eixo y')
+plt.grid(linestyle='--')
+								</code></pre>
+								<span class="image fit"><img src="images/lineplot1-3.png" alt=""></span>
+
+								<hr>
+
+								<p>Customização dos eixos e legendas é exemplificada no código abaixo.</p>
+								<pre><code>
+import matplotlib.pyplot as plt
+
+x = [1,2,3,4,5]
+y1 = [2,5,3,5,7]
+y2 = [7,4,5,3,2]
+
+plt.plot(x, y1, linestyle='--', marker='o', label='Linha 1')
+plt.plot(x, y2, linestyle='-.', marker='s', label='Linha 2')
+plt.xlabel('Eixo x')
+plt.ylabel('Eixo y')
+plt.grid(linestyle='--')
+plt.legend()
+								</code></pre>
+								<span class="image fit"><img src="images/lineplot1-4.png" alt=""></span>
+
+								<hr>
+
+							</div>
+						</div>
+					</section>
+
+				</div>
+			</div>
+
+		</div>
+
+		<!-- Scripts -->
+		<script src="../assets/js/jquery.min.js"></script>
+		<script src="../assets/js/browser.min.js"></script>
+		<script src="../assets/js/breakpoints.min.js"></script>
+		<script src="../assets/js/util.js"></script>
+		<script src="../assets/js/main.js"></script>
+
+	</body>
+</html>
