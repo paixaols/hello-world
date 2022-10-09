@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+	<head>
+		<title>Lucas Paixão</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+		<div id="wrapper">
+
+			<!-- Main -->
+			<div id="main">
+				<div class="inner">
+
+					<!-- Header -->
+					<header id="header">
+						<a href="../dataviz.html" class="logo icon solid fa-arrow-left"><strong>Voltar</strong></a>
+					</header>
+
+					<!-- Pandas plot -->
+					<section>
+						<header class="main">
+							<h1>Pandas</h1>
+						</header>
+
+						<div class="row aln-center">
+							<div class="col-6 col-12-medium">
+
+								<p>O dataframe da biblioteca pandas possui o método <code>plot</code> que gera gráficos de barra com o parâmetro <code>kind='bar'</code> ou <code>kind='barh'</code>:</p>
+								<pre><code>
+import pandas as pd
+
+df = pd.DataFrame({'col a':[1, 2, 3, 4],
+                   'col b':[2, 4, 6, 8]})
+
+df.plot(x='col a', y='col b', kind='bar')
+								</code></pre>
+								<p>O trecho de código acima gera o seguinte gráfico:</p>
+								<span class="image fit"><img src="images/pandas2-1.png" alt=""></span>
+
+								<hr>
+
+								<p>Alternativamente, um gráfico com barras horizontais é produzido alterando o parâmetro kind para <code>kind='barh'</code>.</p>
+								<span class="image fit"><img src="images/pandas2-2.png" alt=""></span>
+
+								<hr>
+
+							</div>
+						</div>
+					</section>
+
+				</div>
+			</div>
+
+		</div>
+
+		<!-- Scripts -->
+		<script src="../assets/js/jquery.min.js"></script>
+		<script src="../assets/js/browser.min.js"></script>
+		<script src="../assets/js/breakpoints.min.js"></script>
+		<script src="../assets/js/util.js"></script>
+		<script src="../assets/js/main.js"></script>
+
+	</body>
+</html>
