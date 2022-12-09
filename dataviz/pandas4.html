@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+	<head>
+		<title>Lucas Paixão</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+		<div id="wrapper">
+
+			<!-- Main -->
+			<div id="main">
+				<div class="inner">
+
+					<!-- Header -->
+					<header id="header">
+						<a href="../dataviz.html" class="logo icon solid fa-arrow-left"><strong>Voltar</strong></a>
+					</header>
+
+					<!-- Pandas plot -->
+					<section>
+						<header class="main">
+							<h1>Pandas</h1>
+						</header>
+
+						<div class="row aln-center">
+							<div class="col-6 col-12-medium">
+
+								<p>O dataframe da biblioteca pandas possui o método <code>plot</code> que gera gráficos de pizza com o parâmetro <code>kind='pie'</code>:</p>
+								<pre><code>
+import pandas as pd
+
+df = pd.DataFrame({
+    'group': ['grupo A', 'grupo B', 'grupo C', 'grupo D'],
+    'val': [9, 5, 4, 3]
+})
+df.set_index('group', inplace=True)
+
+df.plot(y='val', kind='pie')
+								</code></pre>
+								<p>O trecho de código acima gera o seguinte gráfico:</p>
+								<span class="image fit"><img src="images/pandas4-1.png" alt=""></span>
+
+								<hr>
+
+                                <p>Para melhorar a aparência do gráfico vamos alterar algumas configurações, como no código abaixo:</p>
+								<pre><code>
+df.plot(
+    y='val',
+    kind='pie',
+    ylabel='',
+    colormap='GnBu_r',
+    legend=False,
+    fontsize=14,
+    autopct='%.1f%%'
+)
+								</code></pre>
+								<p><code>ylabel=''</code> remove o rótulo <em>val</em>; <code>colormap='GnBu_r'</code> altera o esquema de cores padrão; <code>legend=False</code> remove a legenda, uma vez que o gráfico já possui anotação nas fatias da pizza; <code>fontsize=14</code> altera o tamanho da fonte; e <code>autopct='%.1f%%'</code> exibe a porcentagem da área que cada fatia representa (o formato <code>'%.1f'</code> significa uma casa decimal).</p>
+								<span class="image fit"><img src="images/pandas4-2.png" alt=""></span>
+
+								<hr>
+
+                            </div>
+						</div>
+					</section>
+
+				</div>
+			</div>
+
+		</div>
+
+		<!-- Scripts -->
+		<script src="../assets/js/jquery.min.js"></script>
+		<script src="../assets/js/browser.min.js"></script>
+		<script src="../assets/js/breakpoints.min.js"></script>
+		<script src="../assets/js/util.js"></script>
+		<script src="../assets/js/main.js"></script>
+
+	</body>
+</html>
