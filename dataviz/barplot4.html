@@ -29,21 +29,34 @@
 						<div class="row aln-center">
 							<div class="col-6 col-12-medium">
 
-								<p>Exemplo de gráfico de barras empilhadas.</p>
+								<p>Gráfico de barras comparado com dois grupos de dados.</p>
 								<pre><code>
 import matplotlib.pyplot as plt
+import numpy as np
 
+# Dados
 labels = ['A', 'B', 'C', 'D', 'E']
 group1 = [2, 5, 3, 5, 7]
 group2 = [5, 4, 5, 3, 2]
 
-plt.bar(labels, group1, label='Grupo 1')
-plt.bar(labels, group2, bottom=group1, label='Grupo 2')
-plt.legend()
-								</code></pre>
-								<span class="image fit"><img src="images/barplot3-1.png" alt=""></span>
+x = np.arange(len(labels))
+width = 0.4
 
-								<p>Veja <a href="barplot4.html">aqui</a> uma visualização alternativa.</p>
+# Criação dos gráficos
+rects1 = plt.bar(x - width/2, group1, width, label='Grupo 1')
+rects2 = plt.bar(x + width/2, group2, width, label='Grupo 2')
+
+# Textos para auxiliar a visualização
+plt.xticks(x, labels)
+plt.legend()
+
+# Rótulos com o valor de cada barra
+plt.bar_label(rects1, padding=3)
+plt.bar_label(rects2, padding=3)
+								</code></pre>
+								<span class="image fit"><img src="images/barplot4-1.png" alt=""></span>
+
+								<p>Veja <a href="barplot3.html">aqui</a> uma visualização alternativa.</p>
 
 								<hr>
 
