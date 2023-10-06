@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+	<head>
+		<title>Lucas Paixão</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+		<div id="wrapper">
+
+			<!-- Main -->
+			<div id="main">
+				<div class="inner">
+
+					<!-- Header -->
+					<header id="header">
+						<a href="../dataviz.html" class="logo icon solid fa-arrow-left"><strong>Voltar</strong></a>
+					</header>
+
+					<!-- Pandas plot -->
+					<section>
+						<header class="main">
+							<h1>Linha do tempo</h1>
+						</header>
+
+						<div class="row aln-center">
+							<div class="col-6 col-12-medium">
+
+								<p>Primeiramente importamos as bibliotecas necessárias, <code>matplotlib</code> e <code>numpy</code>, e definimos os eventos históricos. Por organização isso pode ser feito com um dicionário, então os eventos e datas são convertidos nas listas que serão usadas em seguida.</p>
+								<pre><code>
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Definição dos eventos históricos
+events = {
+    'Tomada\nda Bastilha': 1789,
+    'Independência do Brasil': 1822,
+    'Sinfonia nº 9\nde Beethoven': 1824,
+    'Restauração Meiji': 1868,
+    'Nascimento de\nPablo Picasso': 1881,
+    'Relatividade': 1905,
+    'Semana de\narte moderna': 1922,
+    'Pouso na lua': 1969,
+}
+names = list(events.keys())
+dates = list(events.values())
+								</code></pre>
+								<p>Então criamos a linha do tempo:</p>
+								<pre><code>
+# Escolha dos níveis
+levels = np.tile([-5, 5, -3, 3, -1, 1],
+                    int(np.ceil(len(dates)/6)))[:len(dates)]
+
+# Criação da figura
+fig, ax = plt.subplots(figsize=(8.8, 4), layout="constrained")
+
+# Linhas verticais e marcação das datas
+ax.vlines(dates, 0, levels, color="tab:red")
+ax.plot(dates, np.zeros_like(dates), "o",
+        color="k", markerfacecolor="w")
+
+# Anotações das linhas
+for d, l, r in zip(dates, levels, names):
+    ax.annotate(r, xy=(d, l),
+                xytext=(-3, np.sign(l)*3), textcoords="offset points",
+                horizontalalignment="right",
+                verticalalignment="bottom" if l > 0 else "top")
+
+# Remove o eixo-y e os spines
+ax.yaxis.set_visible(False)
+ax.spines[['left', 'top', 'right']].set_visible(False)
+
+# Move o eixo-x (com as datas) para a linha do tempo
+ax.spines['bottom'].set_position(('data', 0))
+                                </code></pre>
+								<span class="image fit"><img src="images/timeline1-1.png" alt=""></span>
+
+								<hr>
+
+							</div>
+						</div>
+					</section>
+
+				</div>
+			</div>
+
+		</div>
+
+		<!-- Scripts -->
+		<script src="../assets/js/jquery.min.js"></script>
+		<script src="../assets/js/browser.min.js"></script>
+		<script src="../assets/js/breakpoints.min.js"></script>
+		<script src="../assets/js/util.js"></script>
+		<script src="../assets/js/main.js"></script>
+
+	</body>
+</html>
