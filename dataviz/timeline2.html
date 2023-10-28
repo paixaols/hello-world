@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+	<head>
+		<title>Lucas Paixão</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+		<div id="wrapper">
+
+			<!-- Main -->
+			<div id="main">
+				<div class="inner">
+
+					<!-- Header -->
+					<header id="header">
+						<a href="../dataviz.html" class="logo icon solid fa-arrow-left"><strong>Voltar</strong></a>
+					</header>
+
+					<!-- Pandas plot -->
+					<section>
+						<header class="main">
+							<h1>Linha do tempo</h1>
+						</header>
+
+						<div class="row aln-center">
+							<div class="col-6 col-12-medium">
+
+								<p>Primeiramente importamos as bibliotecas necessárias, <code>matplotlib</code> e <code>numpy</code>, e definimos os eventos históricos. Por organização isso pode ser feito com um dicionário, então os eventos e datas são convertidos nas listas que serão usadas em seguida.</p>
+								<pre><code>
+import numpy as np
+from matplotlib import pyplot as plt
+from matplotlib.ticker import MultipleLocator
+
+# Definição dos eventos históricos
+events = {
+    'Macedônia': [-808, -168],
+    'Império Aquemênida': [-550, -330],
+    'Império Romano': [-27, 395],
+    'Império Bizantino': [395, 1453],
+    'Califado Abássida': [750, 1258],
+    'Império Mongol': [1206, 1368],
+    'Grande Yuan': [1271, 1368],
+    'Império Otomano': [1299, 1922],
+    'Civilização Asteca': [1325, 1521],
+}
+
+labels = list(events.keys())
+starts = []
+ends = []
+for start, end in events.values():
+    starts.append(start)
+    ends.append(end)
+starts = np.array(starts)
+ends = np.array(ends)
+widths = ends-starts
+centers = (starts+ends)/2
+								</code></pre>
+								<p>Então criamos a linha do tempo:</p>
+								<pre><code>
+# Escolha dos níveis
+levels = np.tile([-5, 5, -3, 3, -1, 1],
+                 int(np.ceil(len(labels)/6)))[:len(labels)]
+
+# Criação da figura
+fig, ax = plt.subplots(figsize=(8, 4))
+
+# Marcação dos eventos
+ax.barh(
+    levels,
+    widths,
+    left=starts,
+    height=0.5,
+    color='#9a2622',
+    edgecolor='#661916'
+)
+
+# Anotações
+for x, y, label in zip(centers, levels, labels):
+    y_text = y/abs(y)*(abs(y)+0.6)
+    ax.text(x, y_text, label, ha='center', va='center', color='k')
+
+# Remove o eixo y e os spines
+ax.yaxis.set_visible(False)
+ax.spines[['left', 'top', 'right']].set_visible(False)
+
+# Altera o eixo x
+ax.spines['bottom'].set_position(('data', 0))
+ax.xaxis.set_minor_locator(MultipleLocator(100))
+
+fig.tight_layout()
+                                </code></pre>
+								<span class="image fit"><img src="images/timeline2-1.png" alt=""></span>
+
+								<hr>
+
+							</div>
+						</div>
+					</section>
+
+				</div>
+			</div>
+
+		</div>
+
+		<!-- Scripts -->
+		<script src="../assets/js/jquery.min.js"></script>
+		<script src="../assets/js/browser.min.js"></script>
+		<script src="../assets/js/breakpoints.min.js"></script>
+		<script src="../assets/js/util.js"></script>
+		<script src="../assets/js/main.js"></script>
+
+	</body>
+</html>
